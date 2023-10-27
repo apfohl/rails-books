@@ -1,14 +1,21 @@
 <%= turbo_frame_tag book do %>
-  <p>
-    <strong>Title:</strong>
-    <%= book.title %>
-  </p>
+  <div class="book">
+    <p class="title">
+      <strong>Title:</strong>
+      <%= book.title %>
+    </p>
 
-  <p>
-    <strong>Author:</strong>
-    <%= book.author %>
-  </p>
+    <p class="author">
+      <strong>Author:</strong>
+      <%= book.author %>
+    </p>
 
-  <%= button_to "Edit this book", edit_book_path(book), method: :get %>
-  <%= button_to "Destroy this book", book, method: :delete %>
+    <div class="action-left">
+      <%= button_to "Edit this book", edit_book_path(book), class: "button secondary", method: :get %>
+    </div>
+
+    <div class="action-right">
+      <%= button_to "Destroy this book", book, class: "button danger", method: :delete %>
+    </div>
+  </div>
 <% end %>
