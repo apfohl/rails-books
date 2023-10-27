@@ -4,6 +4,7 @@ class BooksController < ApplicationController
   # GET /books or /books.json
   def index
     @books = Book.ordered
+    @number_of_books = Book.count
   end
 
   # GET /books/1 or /books/1.json
@@ -25,6 +26,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
+        @number_of_books = Book.count
         format.html { redirect_to book_url(@book), notice: "Book was successfully created." }
         format.turbo_stream
       else
@@ -47,6 +49,8 @@ class BooksController < ApplicationController
   # DELETE /books/1 or /books/1.json
   def destroy
     @book.destroy
+
+    @number_of_books = Book.count
 
     respond_to do |format|
       format.html { redirect_to books_url, notice: "Book was successfully destroyed." }

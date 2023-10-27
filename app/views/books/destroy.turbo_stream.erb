@@ -1,1 +1,4 @@
 <%= turbo_stream.remove "book_#{@book.id}" %>
+<%= turbo_stream.update "books_heading" do %>
+  <%= render "heading", number_of_books: @number_of_books %>
+<% end %>

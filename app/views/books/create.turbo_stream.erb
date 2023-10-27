@@ -1,2 +1,5 @@
 <%= turbo_stream.prepend "books", @book %>
+<%= turbo_stream.update "books_heading" do %>
+  <%= render "heading", number_of_books: @number_of_books %>
+<% end %>
 <%= turbo_stream.update Book.new, "" %>

@@ -1,7 +1,5 @@
 <%= turbo_frame_tag "books_heading" do %>
-  <h1>Books</h1>
-
-  <%= link_to "New book", new_book_path, data: { turbo_frame: dom_id(Book.new) } %>
+  <%= render "heading", number_of_books: @number_of_books %>
 <% end %>
 
 <%= turbo_frame_tag Book.new %>

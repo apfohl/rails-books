@@ -1,0 +1,3 @@
+<h1>Books (<%= number_of_books %>)</h1>
+
+<%= link_to "New book", new_book_path, data: { turbo_frame: dom_id(Book.new) } %>
