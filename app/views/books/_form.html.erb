@@ -1,7 +1,7 @@
-<%= form_with(model: book) do |form| %>
+<%= form_with(model: book, class: "book-form") do |form| %>
   <% if book.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+    <div class="errors" style="color: red">
+      <p><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</p>
 
       <ul>
         <% book.errors.each do |error| %>
@@ -11,21 +11,21 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-field title">
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
-  <div>
+  <div class="form-field author">
     <%= form.label :author, style: "display: block" %>
     <%= form.text_field :author %>
   </div>
 
-  <div>
-    <%= link_to "Cancel", books_path %>
+  <div class="action-left">
+    <%= link_to "Cancel", books_path, class: "button secondary" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="action-right">
+    <%= form.submit :Submit, class: "button primary" %>
   </div>
 <% end %>

@@ -1,11 +1,9 @@
-<%= turbo_frame_tag "books_heading" do %>
+<%= turbo_frame_tag "books_heading", class: "header" do %>
   <%= render "heading", number_of_books: @number_of_books %>
 <% end %>
 
-<%= turbo_frame_tag Book.new %>
+<%= turbo_frame_tag "books", class: "books" do %>
+  <%= turbo_frame_tag Book.new %>
 
-<br/>
-
-<%= turbo_frame_tag "books" do %>
   <%= render @books %>
 <% end %>
